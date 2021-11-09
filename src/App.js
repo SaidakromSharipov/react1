@@ -1,36 +1,50 @@
-import React from "react";
-class App extends React.Component{
+import React from 'react';
+
+export default class  App extends React.Component{
 
     constructor(props){
-
         super();
-this.state={
-    isName:'Abdunabi'
-}
-}
-getName(){
-    setTimeout(()=>{
-        this.setState({isName:'Shohbaxt'})
-    },3000)
-}
-componentDidMount(){
-  this.getName()
-}
+        this.state={
+            name:'Abdunabi',
+            age:'16',
+            Job:'Programmer',
+            loading:true,
+            work:'yes'
+        };
 
-componentDidUpdate(){
-  console.log('did update')
-  document.querySelector('h1').innerHTML="New person is"+this.state.isName
-}
-
-
-render(){
-    console.log('render')
-    return(
-      <div className="card">
-        <h1>{this.state.isName}</h1>
-      </div>
-    )
-}
     }
 
-export default App;
+    // getInfo=()=>{
+    //     this.setState({name:'Shoxbaxt',age:'15',Job:"Ment stack Devoloper"} );
+    // };
+
+componentDidMount(){
+
+    fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  .then(() => this.setState({work:'no',name:'Shoxbaxt',age:'15',Job:"Ment stack Devoloper", loading:false }))
+    // this.getInfo();
+}
+componentDidUpdate(){
+    console.log('componentDidUpdate');
+}
+render(){
+    console.log('reder');
+    return(
+        <div className="card">
+          
+            { this.state.loading ?
+             <div className="load"> <div class="loadingio-spinner-spinner-pw6f8ijzlms"><div class="ldio-g3mkk0mj3o9">
+             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+             </div></div> </div>: 
+             <ul className="list">  
+              <li>{this.state.name}</li> 
+              <li>{this.state.age}</li> 
+              <li>{this.state.Job}</li> 
+               </ul>
+            }
+         
+        </div>
+    )
+}
+}
