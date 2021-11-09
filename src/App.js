@@ -34,16 +34,16 @@ render(){
         <div className="card">
           
             { this.state.loading ?
-             <div className="load"> <div class="loadingio-spinner-spinner-pw6f8ijzlms"><div class="ldio-g3mkk0mj3o9">
-             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-             </div></div> </div>: 
-             <ul className="list">  
+            <div className="load"> <div class="loadingio-spinner-spinner-pw6f8ijzlms"><div class="ldio-g3mkk0mj3o9">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            </div></div> </div>: 
+            <ul className="list">  
               <li>{this.state.name}</li> 
               <li>{this.state.age}</li> 
               <li>{this.state.Job}</li> 
-               </ul>
+              </ul>
             }
-         
+        
         </div>
     )
 }
